@@ -1,0 +1,19 @@
+<div class="container details-page">
+	<div class="details-image">
+		<img ng-src="{{id | imageURL}}" alt="Image" class="img-rounded" width="100%">
+	</div>
+	<div class="details-info">
+		<div class="legend" data-toggle="tooltip" tooltip="{{item.name}}" tooltip-placement="top">{{ item.name}}</div>
+    <div class="price"><span class="legend">Price: </span>{{item.price | currency}}</div>
+    <div class="category"><span class="legend">Category: </span>{{item.category}}</div>
+    <div class="quantity">
+    	<span class="legend">Quantity: </span> 
+    	<input min="1" max="15" type="number" id="quantity" name="quantity" ng-model="quantity"/>
+  	</div>
+  	<div class="total text-right"><span class="legend">Total: </span>{{total}}</div>
+  	<div class="text-center">
+  		<button class="btn btn-success" ng-click="fnAddtoCart()"> Add to Cart</button>
+  		<button class="btn btn-info" ng-click="fnGotoMainPage()">Go back to Products</button>
+  	</div>
+	</div>
+</div>

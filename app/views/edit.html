@@ -1,0 +1,21 @@
+<div class="container cart-page">
+	<div class="cart-items col-md-12">		
+		<div class="col-md-4 cart-image">
+			<img ng-src="{{product.id | imageURL}}" alt="Image" class="img-rounded" width="100%">
+		</div>
+		<div class="col-md-8 cart-info">			
+			<div class="legend">{{ product.name}}</div>
+	    <div class="price"><span class="legend">Price: </span>{{product.price | currency}}</div>
+	    <div class="category"><span class="legend">Category: </span>{{product.category}}</div>
+	    <div class="quantity">
+	    	<span class="legend">Quantity: </span> 
+	    	<input min="1" max="15" type="number" id="quantity" name="quantity" ng-model="product.quantity"/>
+	  	</div>
+	  	<div class="total text-right">Total: <span class="legend">{{product.total}}</span></div>
+		</div>    
+	</div>
+	<div class="text-center decision-bar col-md-12">
+		<button class="btn btn-success btn-lg" ng-click="fnAddtoCart()">Confirm the Changes</button>
+		<button class="btn btn-info btn-lg" ng-click="fnGotoMainPage()">Go back to Products</button>
+	</div>
+</div>

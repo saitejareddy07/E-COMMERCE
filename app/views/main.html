@@ -1,0 +1,31 @@
+<div class="container-fluid">
+
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+          <li ng-class="active.category=='' ? 'active' : ''" ng-click="fnFilterbyCategory('')"><a href="#">All <span class="sr-only">(current)</span></a></li>
+          <li ng-repeat="category in categories" ng-click="fnFilterbyCategory(category)" ng-class="active.category == category ? 'active' : ''">
+            <a>{{category}}</a>
+          </li>          
+        </ul>
+        <form class="navbar-form navbar-right" role="search">
+          <div class="form-group">
+            <input type="text" class="form-control" placeholder="Search" ng-model="active.$">
+          </div>          
+        </form>        
+      </div>
+    </div>
+  </nav>
+
+  <div class="products-list col-md-12">
+    <div class="product text-center" ng-repeat="item in items | filter:active:strict">
+      <img ng-src="{{item.id | imageURL}}" alt="Image" class="img-rounded">
+      <div class="legend" data-toggle="tooltip" tooltip="{{item.name}}" tooltip-placement="top">{{ item.name | limitTo: 30 }}{{item.name.length > 30 ? '...' : ''}}</div>
+      <div class="price"><span class="legend">Price: </span>{{item.price | currency}}</div>
+      <div class="category"><span class="legend">Category: </span>{{item.category}}</div>
+      <button class="btn btn-primary btn-block" ng-click="fnGetDetails(item.id)">View Details</button>
+    </div>
+  </div>
+</div>
